@@ -6,13 +6,34 @@ let win
 
 function createWindow() {
   // Create the browser window. (renderder process)
-  win = new BrowserWindow({ width: 800, height: 800 })
+  win = new BrowserWindow({ 
+    show: false,              // default: true
+    // backgroundColor: '#FFF',  // default: '#FFF'
+    width: 800,               // default: 800
+    height: 600,              // default: 600
+    // minWidth: 800,            // default: 0
+    // maxWidth: 1024,           // default: UNLIMITED
+    // minHeight: 600,           // default: 0
+    // maxHeight: 768,           // default: UNLIMITED
+    // resizable: true,          // default: true
+    // movable: true,            // default: true
+    // alwaysOnTop: false,       // default: false
+    // title: 'Goodbye, Moon?',  // default: 'Electron'
+    // frame: false,             // default: true
+    // titleBarStyle: 'hidden',  // default: 'default' macOS only
+    // transparent: true         // default: false
+  })
 
   // and load the index.html of the app.
   win.loadFile('index.html')
 
   // Open the DevTools.
-  win.webContents.openDevTools()
+  // win.webContents.openDevTools()
+
+  // Wait for 'ready-to-show' to display our window
+  win.once('ready-to-show', () => {
+    win.show()
+  })
 
   // Emitted when the window is closed.
   win.on('closed', () => {
