@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="index.css">
     <title>Hello World!</title>
   </head>
   <!-- <body style="border: 1px solid red; -webkit-app-region: drag"> -->
@@ -10,6 +11,18 @@
     We are using node <script>document.write(process.versions.node)</script>,
     Chrome <script>document.write(process.versions.chrome)</script>,
     and Electron <script>document.write(process.versions.electron)</script>.
+    <div>
+      <video id="localVideo" autoplay playsinline></video>
+      <video id="remoteVideo" autoplay playsinline></video>
+    </div>    
+    <div>
+      <button id="sendSyncMsgBtn">Ping Main Process</button>
+      <p id="syncReply">Awaiting response</p>
+    </div>
+    <div>
+      <button id="sendAsyncMsgBtn">Ping Main Process Async</button>
+      <p id="asyncReply">Awaiting async response</p>
+    </div>
   </body>
 
   <script>
